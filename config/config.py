@@ -3,7 +3,7 @@ import os
 class Config(object):
 	
 
-	BASE_CONTROLLER_DIR = "app.controllers"
+	BASE_CONTROLLER_DIR = "app.modules"
 	EXT_ACTION = ".jhtml"
 	TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), '../templates')
 

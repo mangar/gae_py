@@ -1,4 +1,4 @@
-application: helloworld
+application: gae-py
 version: 1
 runtime: python27
 api_version: 1
@@ -6,11 +6,31 @@ threadsafe: true
 
 
 handlers:
-- url: /.*
-  script: index.app
+- url: /admin(/|.*\.jhtml)
+  script: app.admin.application    
+
+- url: /.*\.jhtml
+  script: app.index.application
 
 
-# libraries:
+- url: /images
+  static_dir: website/static/images
+- url: /javascripts
+  static_dir: website/static/javascripts
+- url: /stylesheets
+  static_dir: website/static/stylesheets
+
+# - url: /images
+#   static_dir: static_dir/images
+  # http_headers:
+    # Access-Control-Allow-Origin: http://mygame.appspot.com
+
+
+
+libraries:
+- name: webapp2
+  version: latest
+
 # - name: jinja2
 #   version: 2.6
 # - name: setuptools
